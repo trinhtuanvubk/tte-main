@@ -344,7 +344,7 @@ class EnhancedTwoTowerDataset(Dataset):
         
         # Create variant_id to index mapping for vouchers
         self.variant_id_to_idx = {}
-        for idx, row in enumerate(self.voucher_dataset.df.iterrows()):
+        for idx, row in enumerate(self.voucher_dataset.voucher_df.iterrows()):
             variant_id = row[1].get('variant_id')
             if variant_id is not None:
                 self.variant_id_to_idx[variant_id] = idx
@@ -427,7 +427,7 @@ class EnhancedTwoTowerDataset(Dataset):
                 attempts += 1
                 # Sample a random voucher
                 neg_idx = random.randint(0, len(self.voucher_dataset) - 1)
-                neg_variant_id = self.voucher_dataset.df.iloc[neg_idx].get('variant_id')
+                neg_variant_id = self.voucher_dataset.voucher_df.iloc[neg_idx].get('variant_id')
                 
                 # Check if it's a different variant and from a different subcategory
                 neg_subcategory = self.variant_to_subcategory.get(neg_variant_id)

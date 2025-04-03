@@ -76,8 +76,8 @@ def train_enhanced_two_tower_model(
         tcbr_tier_vocab_size=vocab_sizes['tcbr_tier_vocab_size'],
         search_embedding_dim=768,  # Default for PhoBERT
         claim_embedding_dim=768,  # Default for PhoBERT
-        embedding_dim=32,
-        out_project_embedding_dim=128,
+        embedding_dim=10,
+        out_project_embedding_dim=256,
         final_embedding_dim=user_embedding_dim
     )
     
@@ -122,7 +122,7 @@ def train_enhanced_two_tower_model(
     voucher_tower = VoucherTowerModel(
         variant_name_embedding_dim=768,  # Default for PhoBERT
         category_embedding_dim=768,  # Default for PhoBERT
-        out_project_embedding_dim=128,
+        out_project_embedding_dim=256,
         final_embedding=voucher_embedding_dim
     )
     
@@ -290,7 +290,7 @@ def train_enhanced_two_tower_model(
                 torch.save({
                     'model_state_dict': user_tower.state_dict(),
                     'gender_to_idx': user_dataset.gender_to_idx,
-                    'province_to_idx': user_dataset.province_to_idx,
+                    # 'province_to_idx': user_dataset.province_to_idx,
                     'vinid_tier_to_idx': user_dataset.vinid_tier_to_idx,
                     'tcbr_tier_to_idx': user_dataset.tcbr_tier_to_idx
                 }, user_model_path)

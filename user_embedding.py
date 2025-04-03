@@ -15,7 +15,7 @@ class UserTowerModel(nn.Module):
         claim_embedding_dim: int = 768,
         embedding_dim: int = 10,
         out_project_embedding_dim: int = 256,
-        final_embedding_dim: int = 256
+        final_embedding_dim: int = 128
     ):
         super(UserTowerModel, self).__init__()
         
@@ -66,7 +66,7 @@ class UserTowerModel(nn.Module):
             nn.Linear(512, 256),
             nn.ReLU(),
             nn.Dropout(0.2),
-            nn.Linear(512, final_embedding_dim),
+            nn.Linear(256, final_embedding_dim),
             nn.LayerNorm(final_embedding_dim)
         )
         

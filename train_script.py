@@ -44,11 +44,11 @@ def parse_args():
     parser.add_argument('--weight_alpha', type=float, default=0.5, help='Alpha for category weight smoothing (0-1)')
     
     # Model parameters
-    parser.add_argument('--user_dim', type=int, default=256, help='Dimension of user embeddings')
-    parser.add_argument('--voucher_dim', type=int, default=256, help='Dimension of voucher embeddings')
+    parser.add_argument('--user_dim', type=int, default=128, help='Dimension of user embeddings')
+    parser.add_argument('--voucher_dim', type=int, default=128, help='Dimension of voucher embeddings')
     
     # Output parameters
-    parser.add_argument('--output_dir', type=str, default='./models_v5', help='Directory to save the model and embeddings')
+    parser.add_argument('--output_dir', type=str, default='./models_v6', help='Directory to save the model and embeddings')
     parser.add_argument('--model_name', type=str, default="20epochs", help='Custom name for the model (default: timestamp)')
     
     # Other parameters
